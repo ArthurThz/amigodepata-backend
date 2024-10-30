@@ -1,3 +1,9 @@
+import { sql } from "../../db.js";
+
 export class Animals {
-  getAnimaHorses() {}
+  getHorses() {
+    const animals = sql` select * from animais`;
+
+    return animals;
+  }
 }

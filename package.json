@@ -9,9 +9,11 @@
   },
   "keywords": [],
   "author": "",
-   "type":"module",
+  "type": "module",
   "license": "ISC",
   "dependencies": {
+    "@fastify/cors": "^10.0.1",
+    "@neondatabase/serverless": "^0.10.1",
     "fastify": "^5.0.0",
     "postgres": "^3.4.5"
   },
