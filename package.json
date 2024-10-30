@@ -1,0 +1,21 @@
+{
+  "name": "amigodepata-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+   "type":"module",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^5.0.0",
+    "postgres": "^3.4.5"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
