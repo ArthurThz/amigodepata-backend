@@ -11,7 +11,17 @@ server.listen({
   port: 3333,
 });
 
-server.get("/teste", async (request, reply) => {
+server.get("/Horses", async (request, reply) => {
   const teste = await animals.getHorses();
   console.log(teste);
+  reply.code(200).send(teste);
+});
+
+server.post("/Horses", async (request, reply) => {
+  const data = request.body;
+
+  // console.log(data);
+  const response = await animals.addNewAnimal({ data });
+
+  return reply.code(200).send(response);
 });

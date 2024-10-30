@@ -1,0 +1,23 @@
+
+GET http://localhost:3333/Horses
+   
+
+
+###
+
+POST http://localhost:3333/Horses
+Content-Type: application/json
+
+ {
+      "nome": "Bela",
+      "idade": 12,
+      "raca": "Andaluz",
+      "especialidade": "equoterapia",
+      "tipoanimal": "cavalo",
+      "codanimal": "e8c2a7a5-63db-4a9f-8e4f-7198baf2ec4d",
+      "imagem": "https://univitta.net/backend/web/uploads/blog/posts/andaluz_20210104145352.png"
+    }
+   
+
+
+###
