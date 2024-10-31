@@ -1,5 +1,5 @@
 
-GET http://localhost:3333/Horses
+GET http://localhost:3333/SupportAnimals
    
 
 
@@ -9,13 +9,13 @@ POST http://localhost:3333/Horses
 Content-Type: application/json
 
  {
-      "nome": "Bela",
-      "idade": 12,
-      "raca": "Andaluz",
-      "especialidade": "equoterapia",
-      "tipoanimal": "cavalo",
-      "codanimal": "e8c2a7a5-63db-4a9f-8e4f-7198baf2ec4d",
-      "imagem": "https://univitta.net/backend/web/uploads/blog/posts/andaluz_20210104145352.png"
+      "nome": "Rocky",
+      "idade": 4,
+      "raca": "Pug",
+      "especialidade": "suporte",
+      "tipoanimal": "cachorro",
+      "codanimal": "d7f5a9e3-b6c2-4e3f-8b1d-9a6e5f2c7e3b",
+      "imagem": "https://petconectado.com.br/wp-content/uploads/2023/03/Pug_cachorro.jpg"
     }
    
 

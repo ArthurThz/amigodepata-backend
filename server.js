@@ -12,9 +12,13 @@ server.listen({
 });
 
 server.get("/Horses", async (request, reply) => {
-  const teste = await animals.getHorses();
-  console.log(teste);
-  reply.code(200).send(teste);
+  const response = await animals.getHorses();
+  console.log(response);
+  reply.code(200).send(response);
+});
+server.get("/SupportAnimals", async (request, reply) => {
+  const response = await animals.getSupportAnimals();
+  reply.code(200).send(response);
 });
 
 server.post("/Horses", async (request, reply) => {
