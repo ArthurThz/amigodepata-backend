@@ -5,17 +5,13 @@ GET http://localhost:3333/SupportAnimals
 
 ###
 
-POST http://localhost:3333/Register
+POST http://localhost:3333/Login
 Content-Type: application/json
 
  {
-  "cpf":"12345678913",
-  "nome":"Th",
   "email":"th@mail.com",
-  "telefone":"22222222222222222",
-  "deficiencia":"Sindrome de down",
-  "nivel_suporte":1,
   "senha":"123123123"
+  
  }
    
 

@@ -35,10 +35,19 @@ server.post("/Horses", async (request, reply) => {
 server.post("/Register", async (request, reply) => {
   const userData = request.body;
 
-  console.log(userData);
   const response = await user.register(userData);
   const { code, message } = response;
 
   console.log(code, message);
+  reply.code(code).send(message);
+});
+
+server.post("/Login", async (request, reply) => {
+  const { email, senha } = request.body;
+
+  const response = await user.login(email, senha);
+
+  const { code, message } = response;
+
   reply.code(code).send(message);
 });
