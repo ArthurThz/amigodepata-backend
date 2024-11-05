@@ -1,9 +1,11 @@
 import { fastify } from "fastify";
 import cors from "@fastify/cors";
 import { Animals } from "./src/Animals/animals.js";
+import { User } from "./src/Authentication/user.js";
 const server = fastify();
 
 const animals = new Animals();
+const user = new User();
 server.register(cors, {
   origin: "*",
 });
@@ -28,4 +30,15 @@ server.post("/Horses", async (request, reply) => {
   const response = await animals.addNewAnimal({ data });
 
   return reply.code(200).send(response);
+});
+
+server.post("/Register", async (request, reply) => {
+  const userData = request.body;
+
+  console.log(userData);
+  const response = await user.register(userData);
+  const { code, message } = response;
+
+  console.log(code, message);
+  reply.code(code).send(message);
 });

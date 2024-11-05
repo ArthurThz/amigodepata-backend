@@ -5,18 +5,18 @@ GET http://localhost:3333/SupportAnimals
 
 ###
 
-POST http://localhost:3333/Horses
+POST http://localhost:3333/Register
 Content-Type: application/json
 
  {
-      "nome": "Rocky",
-      "idade": 4,
-      "raca": "Pug",
-      "especialidade": "suporte",
-      "tipoanimal": "cachorro",
-      "codanimal": "d7f5a9e3-b6c2-4e3f-8b1d-9a6e5f2c7e3b",
-      "imagem": "https://petconectado.com.br/wp-content/uploads/2023/03/Pug_cachorro.jpg"
-    }
+  "cpf":"12345678913",
+  "nome":"Th",
+  "email":"th@mail.com",
+  "telefone":"22222222222222222",
+  "deficiencia":"Sindrome de down",
+  "nivel_suporte":1,
+  "senha":"123123123"
+ }
    
 
 
