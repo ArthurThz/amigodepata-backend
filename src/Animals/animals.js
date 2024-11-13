@@ -56,6 +56,28 @@ export class Animals {
     }
   }
 
+  async getAnimalById(id) {
+    try {
+      const response =
+        await sql`select * from animais where codanimal = ${id} `;
+
+      if (response.length === 0) {
+        status = {
+          code: 200,
+          message: "Nenhum animal encontrado!",
+        };
+
+        return status;
+      }
+
+      status.code = 200;
+      status.message = "OK";
+      status.content = response;
+
+      return status;
+    } catch (err) {}
+  }
+
   async addNewAnimal({ data }) {
     const { nome, idade, raca, especialidade, tipoanimal, codanimal, imagem } =
       data;
@@ -65,10 +87,11 @@ export class Animals {
         await sql`insert into Animais (codanimal,nome,tipoanimal,raca,especialidade,idade,imagem)
         values
         (${codanimal},${nome},${tipoanimal},${raca},${especialidade},${idade},${imagem}) `;
-
-      console.log(response);
     } catch (err) {
-      return err.data;
+      return {
+        code: 400,
+        message: "algo deu errado! tente novamente mais tarde!",
+      };
     }
   }
 }

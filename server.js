@@ -23,6 +23,13 @@ server.get("/SupportAnimals", async (request, reply) => {
   reply.code(200).send(response);
 });
 
+server.get("/Pets/:id", async (request, reply) => {
+  const id = request.params.id;
+  const response = await animals.getAnimalById(id);
+
+  reply.code(200).send(response);
+});
+
 server.post("/Horses", async (request, reply) => {
   const data = request.body;
 

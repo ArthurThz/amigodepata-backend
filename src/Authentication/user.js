@@ -1,7 +1,6 @@
 import { sql } from "../../db.js";
 import { randomUUID } from "node:crypto";
 import { compareSync, hashSync } from "bcrypt";
-import { get } from "node:http";
 
 export class User {
   async getUserInfo(cpf) {
@@ -17,7 +16,17 @@ export class User {
     const checkifUserExists = await this.getUserInfo(cpf);
 
     if (checkifUserExists.length === 1) {
-      return { code: 200, message: "Já existe um usuário com este CPF!" };
+      if (checkifUserExists[0].email === email) {
+        return {
+          code: 200,
+          message: "Este Email já está em uso, faça login para continuar",
+        };
+      }
+
+      return {
+        code: 200,
+        message: "Este CPF já está em uso, faça login para continuar",
+      };
     }
 
     const uuid = randomUUID();
@@ -50,8 +59,8 @@ export class User {
 
     if (getUser.length === 0) {
       return {
-        code: 404,
-        message: "Nenhum usuário encontrado!",
+        code: 400,
+        message: "Email incorreto!",
       };
     }
 
@@ -61,7 +70,7 @@ export class User {
 
     if (!checkedPassword) {
       return {
-        code: 401,
+        code: 400,
         message: "Senha incorreta!",
       };
     }
