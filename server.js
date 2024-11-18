@@ -23,9 +23,10 @@ server.get("/SupportAnimals", async (request, reply) => {
   reply.code(200).send(response);
 });
 
-server.get("/Pets/:id", async (request, reply) => {
+server.get("/Pets/:type/:id", async (request, reply) => {
   const id = request.params.id;
-  const response = await animals.getAnimalById(id);
+  const animalType = request.params.type;
+  const response = await animals.getAnimalById(id, animalType);
 
   reply.code(200).send(response);
 });

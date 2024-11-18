@@ -56,10 +56,10 @@ export class Animals {
     }
   }
 
-  async getAnimalById(id) {
+  async getAnimalById(id, animalType) {
     try {
       const response =
-        await sql`select * from animais where codanimal = ${id} `;
+        await sql`select * from animais where codanimal = ${id} and especialidade = ${animalType} `;
 
       if (response.length === 0) {
         status = {
