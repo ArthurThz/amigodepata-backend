@@ -22,3 +22,13 @@ Content-Type: application/json
 
 
 ###
+
+POST http://localhost:3333/NewAppointment
+Content-Type: application/json
+
+ {
+  
+"userId":"c6b0ee59-51a1-4008-8221-5a5a8b43f77b"
+
+ }
+   
