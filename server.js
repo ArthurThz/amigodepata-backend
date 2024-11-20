@@ -55,9 +55,9 @@ server.post("/Login", async (request, reply) => {
 
   const response = await user.login(email, senha);
 
-  const { code, message } = response;
+  const { code, data } = response;
 
-  reply.code(code).send(message);
+  reply.code(code).send(data);
 });
 
 server.post("/NewAppointment", async (request, reply) => {
@@ -69,3 +69,14 @@ server.post("/NewAppointment", async (request, reply) => {
 
   reply.code(code).send(message);
 });
+
+server.get("/MyAppointments/:id", async(request, reply) =>{
+    const userId = request.params.id
+  
+
+    const getAppointmentsResponse = await appointment.getAppointments(userId)
+
+    const {code } = getAppointmentsResponse
+    reply.code(code).send(getAppointmentsResponse)
+
+})

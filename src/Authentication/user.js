@@ -55,7 +55,7 @@ export class User {
 
   async login(email, password) {
     const getUser =
-      await sql`select email,senha from usuarios where email = ${email}`;
+      await sql`select email,senha,uuid from usuarios where email = ${email}`;
 
     if (getUser.length === 0) {
       return {
@@ -64,7 +64,7 @@ export class User {
       };
     }
 
-    const { senha } = getUser[0];
+    const { senha,uuid } = getUser[0];
 
     const checkedPassword = compareSync(password, senha);
 
@@ -77,7 +77,7 @@ export class User {
 
     return {
       code: 201,
-      message: "Usuário autenticado!",
+      data: uuid,
     };
   }
 }

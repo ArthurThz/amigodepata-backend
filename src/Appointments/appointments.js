@@ -25,4 +25,30 @@ export class Appointments {
       content:createNewAppointmentResponse
      }
   }
+
+  async getAppointments(userId){
+    try{
+      const response = await sql`select * from consultas where cpf_usuario in (select cpf from usuarios where uuid = ${userId})`
+
+      if(response.length === 0){
+        return {
+          code:200,
+          content: response,
+          message:"Nenhuma consulta encontrada!",
+          
+        }
+      }
+  
+      return {
+        code:200,
+        content:response,
+        message:"OK"
+      }
+    }    catch(err){
+      console.log(err)
+      return new Error(err)
+    }
+
+}
+
 }

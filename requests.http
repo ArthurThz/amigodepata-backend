@@ -1,7 +1,6 @@
 
-GET http://localhost:3333/SupportAnimals
-   
-
+GET http://localhost:3333/MyAppointments/c6b0ee59-51a1-4008-8221-5a5a8b43f77b
+ 
 
 ###
 
@@ -28,7 +27,8 @@ Content-Type: application/json
 
  {
   
-"userId":"c6b0ee59-51a1-4008-8221-5a5a8b43f77b"
+"userId":"c6b0ee59-51a1-4008-8221-5a5a8b43f77b",
+"animalId":"b2fa3a8e-42a7-497c-b3f5-6d9f7dfd5e2a"
 
  }
    
