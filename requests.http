@@ -1,0 +1,34 @@
+
+GET http://localhost:3333/MyAppointments/c6b0ee59-51a1-4008-8221-5a5a8b43f77b
+ 
+
+###
+
+POST http://localhost:3333/Register
+Content-Type: application/json
+
+ {
+  
+"cpf":"12345678919",
+"deficiencia":"autismo",
+"email":"ar@mail.com",
+"nivel_suporte":"1",
+"nome":"Arthur",
+"senha": "123123123123",
+"telefone": "11988888888"
+ }
+   
+
+
+###
+
+POST http://localhost:3333/NewAppointment
+Content-Type: application/json
+
+ {
+  
+"userId":"c6b0ee59-51a1-4008-8221-5a5a8b43f77b",
+"animalId":"b2fa3a8e-42a7-497c-b3f5-6d9f7dfd5e2a"
+
+ }
+   
