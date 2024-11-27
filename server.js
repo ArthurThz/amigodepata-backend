@@ -7,7 +7,7 @@ const server = fastify();
 
 const animals = new Animals();
 const user = new User();
-const appointment = new Appointments()
+const appointment = new Appointments();
 server.register(cors, {
   origin: "*",
 });
@@ -61,22 +61,38 @@ server.post("/Login", async (request, reply) => {
 });
 
 server.post("/NewAppointment", async (request, reply) => {
-  const { userId, animalId} = request.body;
+  const { userId, animalId } = request.body;
 
-  const response = await appointment.createAppointment(userId,animalId)
-  console.log(response)
+  const response = await appointment.createAppointment(userId, animalId);
+  console.log(response);
   const { code, message } = response;
 
   reply.code(code).send(message);
 });
 
-server.get("/MyAppointments/:id", async(request, reply) =>{
-    const userId = request.params.id
-  
+server.get("/MyAppointments/:id", async (request, reply) => {
+  const userId = request.params.id;
 
-    const getAppointmentsResponse = await appointment.getAppointments(userId)
+  const getAppointmentsResponse = await appointment.getAppointments(userId);
 
-    const {code } = getAppointmentsResponse
-    reply.code(code).send(getAppointmentsResponse)
+  const { code } = getAppointmentsResponse;
+  reply.code(code).send(getAppointmentsResponse);
+});
 
-})
+server.delete("/Appointment/:id", async (request, reply) => {
+  const appointmendId = request.params.id;
+
+  const response = await appointment.deleteAppointment(appointmendId);
+
+  const { code, message } = response;
+  reply.status(code).send(message);
+});
+
+server.get("/GetUserData/:id", async (request, reply) => {
+  const userId = request.params.id;
+
+  const getUserResponse = await appointment.getUserData(userId);
+
+  const { code } = getUserResponse;
+  reply.code(code).send(getUserResponse);
+});

@@ -4,6 +4,17 @@ GET http://localhost:3333/MyAppointments/c6b0ee59-51a1-4008-8221-5a5a8b43f77b
 
 ###
 
+GET http://localhost:3333/GetUserData/c6b0ee59-51a1-4008-8221-5a5a8b43f77b
+ 
+
+###
+
+
+DELETE http://localhost:3333/Appointment/fc2f6622-e6e1-4187-86d0-01d0d41f759c
+ 
+
+###
+
 POST http://localhost:3333/Register
 Content-Type: application/json
 
@@ -28,7 +39,17 @@ Content-Type: application/json
  {
   
 "userId":"c6b0ee59-51a1-4008-8221-5a5a8b43f77b",
-"animalId":"b2fa3a8e-42a7-497c-b3f5-6d9f7dfd5e2a"
+"animalId":"d5f4a9ed-52a4-41a7-b4e9-1fd33d4c8c1b"
 
  }
+
+ ###
+GET POST http://localhost:3333/NewAppointment
+
+###
+
+
+
+
+   
    
